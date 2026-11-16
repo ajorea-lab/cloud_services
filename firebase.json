@@ -1,0 +1,33 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "cloud-services-f8351",
+          "appId": "1:421952261678:android:0b954093aae568c06a59bf",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "cloud-services-f8351",
+          "configurations": {
+            "android": "1:421952261678:android:0b954093aae568c06a59bf",
+            "ios": "1:421952261678:ios:e1c2f31e4a41430e6a59bf",
+            "macos": "1:421952261678:ios:e1c2f31e4a41430e6a59bf",
+            "web": "1:421952261678:web:fdf4029eff0c74a96a59bf",
+            "windows": "1:421952261678:web:8277f4f33cb9399e6a59bf"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "dataconnect": {
+      "dataDir": "dataconnect/.dataconnect/pgliteData"
+    }
+  },
+  "dataconnect": {
+    "source": "dataconnect"
+  }
+}

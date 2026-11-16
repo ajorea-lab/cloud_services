@@ -1,0 +1,33 @@
+type User @table {
+  email: String!
+  createdAt: Timestamp!
+  displayName: String
+  avatarUrl: String
+}
+
+type Note @table {
+  content: String!
+  expiresAt: Timestamp!
+  createdAt: Timestamp!
+  title: String
+  status: String
+  user: User!
+}
+
+type Tag @table {
+  name: String!
+  color: String!
+  user: User!
+}
+
+type NoteTag @table(key: ["note", "tag"]) {
+  note: Note!
+  tag: Tag!
+}
+
+type Preference @table {
+  defaultExpiryHours: Int!
+  themePreference: String
+  notificationEnabled: Boolean
+  user: User!
+}

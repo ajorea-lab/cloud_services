@@ -1,0 +1,50 @@
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: { id_expr: "auth.uid", email: "user@example.com", createdAt_expr: "request.time" })
+}
+
+mutation CreateNote($content: String!, $expiresAt: Timestamp!, $title: String, $status: String) @auth(level: USER) {
+  note_insert(data: { content: $content, expiresAt: $expiresAt, title: $title, status: $status, userId_expr: "auth.uid", createdAt_expr: "request.time" })
+}
+
+mutation CreateTag($name: String!, $color: String!) @auth(level: USER) {
+  tag_insert(data: { name: $name, color: $color, userId_expr: "auth.uid" })
+}
+
+mutation CreateNoteTag($noteId: UUID!, $tagId: UUID!) @auth(level: USER) {
+  noteTag_insert(data: { noteId: $noteId, tagId: $tagId })
+}
+
+mutation CreatePreference($defaultExpiryHours: Int!, $themePreference: String, $notificationEnabled: Boolean) @auth(level: USER) {
+  preference_upsert(data: { id_expr: "auth.uid", userId_expr: "auth.uid", defaultExpiryHours: $defaultExpiryHours, themePreference: $themePreference, notificationEnabled: $notificationEnabled })
+}
+
+mutation UpdateNote($id: UUID!, $content: String) @auth(level: USER) {
+  note_update(key: { id: $id }, data: { content: $content })
+}
+
+mutation DeleteNote($id: UUID!) @auth(level: USER) {
+  note_delete(key: { id: $id })
+}
+
+query GetMyNotes @auth(level: USER) {
+  notes(where: { userId: { eq_expr: "auth.uid" } }) {
+    id
+    content
+    title
+  }
+}
+
+query GetSingleNote($id: UUID!) @auth(level: USER) {
+  note(key: { id: $id }) {
+    content
+    expiresAt
+  }
+}
+
+query ListMyTags @auth(level: USER) {
+  tags(where: { userId: { eq_expr: "auth.uid" } }) {
+    id
+    name
+    color
+  }
+}

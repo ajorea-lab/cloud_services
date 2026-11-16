@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "421952261678",
+    "project_id": "cloud-services-f8351",
+    "storage_bucket": "cloud-services-f8351.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421952261678:android:0b954093aae568c06a59bf",
+        "android_client_info": {
+          "package_name": "com.example.cw2_cloud_services"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTU07xJ-YzR71m6p2NZRmOF_63eFdVC4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

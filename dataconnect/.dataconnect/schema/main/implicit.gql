@@ -1,0 +1,46 @@
+extend type Note {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Note", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Note`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Note.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type NoteTag {
+  """
+  ✨ Implicit foreign key field based on `NoteTag`.`note`. It must match the value of `Note`.`id`. See `@ref` for how to customize it.
+  """
+  noteId: UUID! @fdc_generated(from: "NoteTag.note", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `NoteTag`.`tag`. It must match the value of `Tag`.`id`. See `@ref` for how to customize it.
+  """
+  tagId: UUID! @fdc_generated(from: "NoteTag.tag", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Preference {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Preference", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Preference`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Preference.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Tag {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Tag", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Tag`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Tag.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type User {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "User", purpose: IMPLICIT_KEY_FIELD)
+}

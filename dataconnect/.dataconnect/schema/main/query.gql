@@ -1,0 +1,262 @@
+extend type Query {
+  """
+  ✨ Look up a single `Note` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  note(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Note_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Note_FirstRow
+  ): Note @fdc_generated(from: "Note", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `NoteTag` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  noteTag(
+    """
+    The key used to identify the object.
+    """
+    key: NoteTag_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoteTag_FirstRow
+  ): NoteTag @fdc_generated(from: "NoteTag", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Preference` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  preference(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Preference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Preference_FirstRow
+  ): Preference @fdc_generated(from: "Preference", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Tag` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  tag(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Tag_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Tag_FirstRow
+  ): Tag @fdc_generated(from: "Tag", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `User` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  user(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User @fdc_generated(from: "User", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Note` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  notes(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Note_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Note_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Note_Having
+  ): [Note!]! @fdc_generated(from: "Note", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `NoteTag` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  noteTags(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: NoteTag_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [NoteTag_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: NoteTag_Having
+  ): [NoteTag!]! @fdc_generated(from: "NoteTag", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Preference` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  preferences(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Preference_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Preference_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Preference_Having
+  ): [Preference!]! @fdc_generated(from: "Preference", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Tag` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  tags(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Tag_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Tag_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Tag_Having
+  ): [Tag!]! @fdc_generated(from: "Tag", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `User` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  users(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: User_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [User_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: User_Having
+  ): [User!]! @fdc_generated(from: "User", purpose: QUERY_MULTIPLE)
+}
