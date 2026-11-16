@@ -57,7 +57,6 @@ class DefaultFirebaseOptions {
     projectId: 'cloud-services-f8351',
     storageBucket: 'cloud-services-f8351.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCAEdSWttDF9vY0M53trUKlL6wlf7Ah-Fs',
     appId: '1:421952261678:ios:e1c2f31e4a41430e6a59bf',
@@ -66,7 +65,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'cloud-services-f8351.firebasestorage.app',
     iosBundleId: 'com.example.cw2CloudServices',
   );
-
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCAEdSWttDF9vY0M53trUKlL6wlf7Ah-Fs',
     appId: '1:421952261678:ios:e1c2f31e4a41430e6a59bf',

@@ -1,3 +1,4 @@
+import 'package:cw2_cloud_services/services/reward_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -31,8 +32,16 @@ class CloudQuestApp extends StatelessWidget {
               : ChallengeScreen(
             user: user,
 
-            // TODO: Connect reward completion callback
-            onComplete: () {},
+            onComplete: () async {
+              
+                await completeChallenge();
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Congrats! Challenge completed."),
+                  ),
+                );
+              },
           );
         },
       ),

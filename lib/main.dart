@@ -17,21 +17,21 @@ Future<void> main() async {
   );
 
   if (kDebugMode) {
-    // TODO: Connect Authentication emulator
+
     FirebaseAuth.instance.useAuthEmulator(
-      'localhost',
-      8080
+      '10.0.2.2',
+      9099
     );
   
-    // TODO: Connect Firestore emulator
+   
     FirebaseFirestore.instance.useFirestoreEmulator(
-      'localhost',
+      '10.0.2.2',
       8080
     );
-    // TODO: Connect Functions emulator
+    
     FirebaseFunctions.instance.useFunctionsEmulator(
-      'localhost',
-      8080
+      '10.0.2.2',
+      5001
     );
     // Android emulator uses 10.0.2.2
     // iOS simulator typically uses localhost

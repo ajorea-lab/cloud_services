@@ -56,29 +56,59 @@ class _SignInScreenState
             const SizedBox(height: 16),
 
             FilledButton(
-              onPressed: () {
-                () async{
+              //register button
+              onPressed: loading ? null : () async{
+                setState(() {
+                  loading = true;
+                  errorMessage = null;
+                });
+                try{
                   await register(
                     emailController.text,
                     passwordController.text,
-                  );
+                  ); 
+                } catch (e) {
+                  setState(() {
+                    errorMessage = e.toString();
+
+                  });
+                if (mounted) {
+                  setState(() {
+                    loading = false;
+                  });
+                }
                 };
               },
               child: const Text('Sign Up'),
             ),
 
             OutlinedButton(
-              onPressed: () {
-                () async{
+              //sign in button
+              onPressed: loading ? null : () async{
+                setState(() {
+                  loading = true;
+                  errorMessage = null;
+                });
+                try{
                   await signIn(
                     emailController.text,
                     passwordController.text,
-                  );
+                  ); 
+                } catch (e) {
+                  setState(() {
+                    errorMessage = e.toString();
+
+                  });
+                if (mounted) {
+                  setState(() {
+                    loading = false;
+                  });
+                }
                 };
               },
               child: const Text('Sign In'),
             ),
-
+            const SizedBox(height: 12),
              if (errorMessage != null)
               Semantics(
                 liveRegion: true,
@@ -90,15 +120,10 @@ class _SignInScreenState
                 ),
               ),
 
-            // TODO: Disable buttons while loading
+            
               if (loading)
                 const CircularProgressIndicator(),
-               
               ],
-
-
-            // TODO: Show progress indicator
-          ],
         ),
       ),
     );
